@@ -6,7 +6,7 @@ const Navbar = () => {
     <header className="flex justify-between items-center px-20 py-4">
         {/* left Navbar Section */}
       <div>
-        <h2 className="text-4xl fond-bold">WanderWise</h2>
+        <h2 className="text-4xl fond-bold">wanderwise</h2>
       </div>
 
         {/* right Navbar Section */}

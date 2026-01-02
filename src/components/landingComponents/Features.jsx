@@ -1,26 +1,31 @@
 import React from "react";
 import FeaturesCard from "../common/FeaturesCard";
+import { Banknote, History, Map, NotebookPen } from "lucide-react";
 
 const featuresData = [
   {
     title: "User Authentication & Profiles",
     description:
       "Secure user registration and login system allowing travelers to manage personal details, preferences, and travel history.",
+    icon: Map,
   },
   {
     title: "Trip Planning & Itinerary Management",
     description:
       "Create, update, and organize travel itineraries including destinations, dates, activities, and notes.",
+    icon: History,
   },
   {
     title: "Booking Management",
     description:
       "Manage bookings for flights, hotels, and transportation with real-time status updates and confirmations.",
+    icon: NotebookPen,
   },
   {
     title: "Budget & Expense Tracking",
     description:
       "Track travel budgets, expenses, and payments to help users stay within planned spending limits.",
+    icon: Banknote,
   },
 ];
 
@@ -42,6 +47,7 @@ const Features = () => {
             key={index}
             title={feature.title}
             description={feature.description}
+            icon={feature.icon}
           />
         ))}
       </div>
