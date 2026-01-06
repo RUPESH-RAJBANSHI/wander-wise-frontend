@@ -1,5 +1,6 @@
 import React from "react";
 import CustomButton from "../common/CustomButton";
+import { Button } from "../ui/button";
 
 const Hero = () => {
   return (
@@ -10,6 +11,10 @@ const Hero = () => {
           Discover the world with our travel palnning tools and expert device
         </p>
         <CustomButton text="Get Started" />
+
+        <Button variant="outline">
+          Hello
+        </Button>
       </div>
 
       {/* background image Section */}

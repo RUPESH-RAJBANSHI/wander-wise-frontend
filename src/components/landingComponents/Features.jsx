@@ -5,8 +5,8 @@ import { Banknote, History, Map, NotebookPen } from "lucide-react";
 const featuresData = [
   {
     title: "User Authentication & Profiles",
-    description:
-      "Secure user registration and login system allowing travelers to manage personal details, preferences, and travel history.",
+    description: 
+    "Create customized travel plans based on your interests, budget, and schedule with our itinerary generator.",
     icon: Map,
   },
   {
