@@ -19,7 +19,9 @@ const Navbar = () => {
           <a href="">Contact</a>
         </nav>
 
+        <a href="/Signin">
         <CustomButton text="Sign in" />
+        </a>
       </div>
     </header>
   );
