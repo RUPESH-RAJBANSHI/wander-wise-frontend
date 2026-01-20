@@ -1,37 +1,37 @@
-import TripForm from "@/components/trips/TripForm";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import React from "react";
-import { useParams } from "react-router-dom";
+import React from 'react'
+import {Card, CardTitle, CardDescription, CardHeader, CardContent} from "@/components/ui/card"
+import TripForm from '@/components/trips/TripForm'
+import { data, useParams } from 'react-router-dom'
+import useApi from '@/hooks/useApi'
 
 const EditTripPage = () => {
-  const { id } = useParams();
+  const {id} = useParams();
 
-  if (loading) return <div>loading</div>;
-  const formattedDate = {
+  const {loading, data, error} = useApi(`/trips/${id}`);
+
+  if(loading) return <div>loading</div>
+
+  const formattedData = {
     ...data,
-    starDate: startDate.split("T")[0],
-    endDate: data?.endtDate.split("T")[0],
-  };
+    startDate: data?.startDate.split("T")[0],
+    endDate: data?.endDate.split("T")[0],
+  }
+
+  console.log(data);
+
   return (
     <section>
       <Card className="w-2/5 mx-auto my-8">
         <CardHeader>
-          <CardTitle>
-            <CardDescription>Update information of your trip</CardDescription>
-          </CardTitle>
+          <CardTitle>Edit This Trip</CardTitle>
+          <CardDescription>Update information of your trip.</CardDescription>
         </CardHeader>
         <CardContent>
-          <TripForm />
+          <TripForm tripInfo={formattedData}/>
         </CardContent>
       </Card>
     </section>
-  );
-};
+  )
+}
 
-export default EditTripPage;
+export default EditTripPage
