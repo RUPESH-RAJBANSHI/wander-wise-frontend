@@ -127,7 +127,7 @@ export default function TripForm({ tripInfo }) {
                 <FormItem>
                   <FormLabel>Trip Title</FormLabel>
                   <FormControl>
-                    <Input placeholder="shadcn" {...field} />
+                    <Input placeholder="" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -141,7 +141,7 @@ export default function TripForm({ tripInfo }) {
                 <FormItem>
                   <FormLabel>Trip Description</FormLabel>
                   <FormControl>
-                    <Input placeholder="shadcn" {...field} />
+                    <Input placeholder="" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

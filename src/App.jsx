@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Router, Routes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import About from "./pages/About";
 import Register from "./pages/Register";
@@ -11,6 +11,9 @@ import TripsPage from "./pages/trips/TripsPage";
 import AddTripPage from "./pages/trips/AddTripPage";
 import EditTripPage from "./pages/trips/EditTripPage";
 import TripDetails from "./pages/trips/TripDetails";
+import AcceptInvitation from "./pages/AcceptInvitation";
+import BaggagePage from "./pages/baggage/BaggagePage";
+import BaggageDetails from "./pages/baggage/BaggageDetails";
 
 export default function App() {
   const { token, logout } = useAuth();
@@ -61,6 +64,10 @@ export default function App() {
           <Route path="/trips/add" element={<AddTripPage />} />
           <Route path="/trips/edit/:id" element={<EditTripPage />} />
           <Route path="/trips/:id" element={<TripDetails />} />
+          <Route path="/trips/:id/invite/accept" element={<AcceptInvitation/>} />
+
+          <Route path="/baggage" element={<BaggagePage />} />
+          <Route path="/baggage/:id" element={<BaggageDetails/>} />
         </Route>
 
       </Routes>

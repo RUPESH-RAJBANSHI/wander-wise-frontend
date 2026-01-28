@@ -23,9 +23,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { registerUser } from "@/api/auth";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import useAuth from "@/hooks/useAuth";
+import { useEffect } from "react";
 
 const formSchema = z
   .object({
@@ -48,8 +49,15 @@ const formSchema = z
   });
 
 export default function Register() {
-  const { login } = useAuth();
+  const { login, token } = useAuth();
   const navigate = useNavigate();
+
+    useEffect(() => {
+    if (token) {
+      Navigate("/dashboard");
+    }
+  }, [token]);
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -107,7 +115,7 @@ export default function Register() {
                   <FormItem>
                     <FormLabel>Full Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Harka Bahadur" {...field} />
+                      <Input placeholder="Enter your Full Name" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

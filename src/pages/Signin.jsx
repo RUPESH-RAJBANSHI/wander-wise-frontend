@@ -22,10 +22,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { loginUser } from "@/api/auth";
 import useAuth from "@/hooks/useAuth";
+import { useEffect } from "react";
 
 const formSchema = z.object({
   email: z.string().min(2, {
@@ -37,8 +38,15 @@ const formSchema = z.object({
 });
 
 export default function SigninPage() {
-  const { login } = useAuth();
+  
+  const { login, token } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (token) {
+      Navigate("/dashboard");
+    }
+  }, [token]);
 
   const form = useForm({
     resolver: zodResolver(formSchema),
