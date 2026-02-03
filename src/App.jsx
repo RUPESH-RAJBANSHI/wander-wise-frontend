@@ -74,7 +74,7 @@ export default function App() {
           <Route path="/baggage/:id" element={<BaggageDetails/>} />
 
           <Route path="/itineraries" element={<ItenerariesPage />} />
-          <Route path="/itineraries/add" element={<AddItineraries />} />
+          <Route path="/itineraries/:tripId/add" element={<AddItineraries />} />
           <Route path="/itineraries/:id" element={<ItinerariesDeatils />} />
           <Route path="/itineraries/:tripId/edit/:itinerariesId" element={<EditItineraries />} />
         </Route>
