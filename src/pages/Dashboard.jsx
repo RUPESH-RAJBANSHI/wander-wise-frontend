@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { StatCard } from '@/components/common/StatCard'
 import { MapPin, Clock, CheckCircle, Compass, Plus } from 'lucide-react'
 import useApi from '@/hooks/useApi'
 import Loading from '@/components/common/Loading';
@@ -15,15 +16,15 @@ export default function Dashboard() {
   let upcoming = 0;
   let completed = 0;
 
-  trips.forEach((trip) => {
+  trips.forEach(trip => {
     const startDate = new Date(trip.startDate);
     const endDate = new Date(trip.endDate);
 
     if (startDate <= today && endDate >= today) {
       ongoing++;
-    } else if (today < startDate) {
+    } else if (startDate > today) {
       upcoming++;
-    } else if (today > endDate) {
+    } else if (endDate < today) {
       completed++;
     }
   });
@@ -38,7 +39,7 @@ export default function Dashboard() {
 
       {/* Stats Section */}
       <div className="py-8 px-20">
-       {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatCard 
             label="Total Trips" 
             value={trips.length}
@@ -63,7 +64,7 @@ export default function Dashboard() {
             icon={<MapPin />}
             className="bg-purple-50 border-purple-200"
           />
-        </div>*/}
+        </div>
 
         {/* Info Section with Background Image */}
         <div 
